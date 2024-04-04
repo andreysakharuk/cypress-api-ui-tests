@@ -1,0 +1,23 @@
+{
+  "name": "cypress-api-ui-tests",
+  "version": "1.0.0",
+  "description": "UI and API cypress tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreysakharuk/cypress-api-ui-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreysakharuk/cypress-api-ui-tests/issues"
+  },
+  "homepage": "https://github.com/andreysakharuk/cypress-api-ui-tests#readme",
+  "devDependencies": {
+    "cypress": "^13.7.2"
+  }
+}
