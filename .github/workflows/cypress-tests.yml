@@ -9,12 +9,25 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
 
       - name: Install dependencies
         run: npm install
 
       - name: Run Cypress tests
-        run: npm run cy:run
+        uses: cypress-io/github-action@v5
+
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
