@@ -1,30 +1,26 @@
-import AppPage from "../../pages/app_page";
-import HomePage from "../../pages/home_page";
-import LoginPage from "../../pages/login_page";
-
-const homePage = new HomePage();
-const loginPage = new LoginPage();
-const appPage = new AppPage();
+import { todayPage } from "../../core/pages/today_page";
+import { loginPage } from "../../core/pages/login_page";
+import { sidebarComponent } from "../../core/components/sidebar_component";
+import users from "../../fixtures/users.json";
 
 describe("Login test suite", function () {
     it("Check user can login with valid credentials", function () {
-        homePage.open_homePage();
-        homePage.click_loginButton_header();
+        loginPage.open_loginPage();
+        loginPage.enter_emailInput(users.userValid.email);
+        loginPage.enter_passwordInput(users.userValid.password);
+        loginPage.click_loginButton();
 
-        loginPage.enter_emailInput_loginForm("andrei.sakharuk.spain@gmail.com");
-        loginPage.enter_passwordInput_loginForm("12345test");
-        loginPage.click_loginButton_loginForm();
-
-        appPage.verify_headerText_mainContent("Today");
+        todayPage.verify_mainContentHeaderText("Today");
+        sidebarComponent.verify_settingsButtonLabelText(users.userValid.name);
     });
 
-    it("Check user can not login with invalid credentials", function () {
-        homePage.open_homePage();
-        homePage.click_loginButton_header();
-
-        loginPage.enter_emailInput_loginForm("invalid_email@gmail.com");
-        loginPage.enter_passwordInput_loginForm("12345test");
-        loginPage.click_loginButton_loginForm();
-        loginPage.verify_generalErrorText_loginForm("Wrong email or password.");
+    users.usersInvalid.forEach((user) => {
+        it(`Check user can not login with invalid credentials (${user.description})`, function () {
+            loginPage.open_loginPage();
+            loginPage.enter_emailInput(user.email);
+            loginPage.enter_passwordInput(user.password);
+            loginPage.click_loginButton();
+            loginPage.verify_generalErrorText("Wrong email or password.");
+        });
     });
 });

@@ -1,0 +1,19 @@
+{
+    "userValid":{
+       "email":"andrei.sakharuk.spain@gmail.com",
+       "name":"andrei.sakharuk.spain",
+       "password":"new12345TODO"
+    },
+    "usersInvalid":[
+       {
+          "email":"invalid.spain@gmail.com",
+          "password":"12345test",
+          "description":"invalid email, valid password"
+       },
+       {
+          "email":"andrei.sakharuk.spain@gmail.com",
+          "password":"111111",
+          "description":"valid email, invalid password"
+       }
+    ]
+}
