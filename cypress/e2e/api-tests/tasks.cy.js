@@ -13,7 +13,7 @@ describe("API Task test suite", function () {
             createTaskPayload.project_id = projectId;
             createTaskPayload.content = "New task 1";
             taskAPI.createTask(createTaskPayload).then((response) => {
-                expect(response.body).not.to.empty;
+                expect(response.body).to.be.empty;
                 expect(response.body.content).equals(createTaskPayload.content);
                 expect(response.body.project_id).equals(createTaskPayload.project_id);
                 cy.wrap(response.body.id).as("taskId");
