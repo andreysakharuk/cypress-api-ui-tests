@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/andreysakharuk/cypress-api-ui-tests#readme",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "cypress": "^13.7.2",
     "cypress-split": "^1.21.2"
   }
