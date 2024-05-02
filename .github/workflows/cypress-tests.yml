@@ -1,42 +1,8 @@
-name: Cypress Tests
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch: 
-
+name: ci cypress tests
+on: [push]
 jobs:
-  cypress:
-    runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2]
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v5
-
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: report
-          path: cypress/reports/html
-          retention-days: 10
+  split:
+    uses: bahmutov/cypress-workflows/.github/workflows/split.yml@v1
+    with:
+      n: 3
+      marge: true
