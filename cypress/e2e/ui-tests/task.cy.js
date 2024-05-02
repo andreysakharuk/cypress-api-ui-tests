@@ -1,9 +1,13 @@
-import { todayPage } from "../../core/pages/today_page";
-import { loginStep } from "../../core/steps/login_step";
-import { taskStep } from "../../core/steps/task_step";
+import { todayPage } from "../../core/ui/pages/today_page";
+import { loginStep } from "../../core/ui/steps/login_step";
+import { taskStep } from "../../core/ui/steps/task_step";
+import { taskAction } from "../../core/api/actions/task_action";
 import users from "../../fixtures/users.json";
 
 describe("Tasks test suite", function () {
+    before("Setup: delete all existing tasks", function () {
+        taskAction.deleteAllTasks();
+    });
     it("Check user can see proper task number labels after adding/removing tasks", function () {
         loginStep.login(users.userValid.email, users.userValid.password);
         todayPage.verify_mainContentHeaderText("Today");

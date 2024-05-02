@@ -1,6 +1,6 @@
-import { todayPage } from "../../core/pages/today_page";
-import { loginPage } from "../../core/pages/login_page";
-import { sidebarComponent } from "../../core/components/sidebar_component";
+import { todayPage } from "../../core/ui/pages/today_page";
+import { loginPage } from "../../core/ui/pages/login_page";
+import { sidebarComponent } from "../../core/ui/components/sidebar_component";
 import users from "../../fixtures/users.json";
 
 describe("Login test suite", function () {
