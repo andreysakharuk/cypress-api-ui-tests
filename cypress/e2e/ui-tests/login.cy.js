@@ -3,7 +3,7 @@ import { loginPage } from "../../core/ui/pages/login_page";
 import { sidebarComponent } from "../../core/ui/components/sidebar_component";
 import users from "../../fixtures/users.json";
 
-describe("Login test suite", function () {
+describe("UI Login test suite", function () {
     it("Check user can login with valid credentials", function () {
         loginPage.open_loginPage();
         loginPage.enter_emailInput(users.userValid.email);

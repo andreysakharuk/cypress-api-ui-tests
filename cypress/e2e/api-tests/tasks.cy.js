@@ -3,7 +3,7 @@ import { createTaskPayload } from "../../core/api/payloads/task_payload";
 import { taskAction } from "../../core/api/actions/task_action";
 import { projectAPI } from "../../core/api/requests/project_api";
 
-describe("API test task", function () {
+describe("API Task test suite", function () {
     it("Check user can create new task", function () {
         projectAPI.getAllProjects().then((response) => {
             cy.wrap(response.body[0].id).as("projectId");
