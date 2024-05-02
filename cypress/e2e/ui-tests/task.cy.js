@@ -4,7 +4,7 @@ import { taskStep } from "../../core/ui/steps/task_step";
 import { taskAction } from "../../core/api/actions/task_action";
 import users from "../../fixtures/users.json";
 
-describe("Tasks test suite", function () {
+describe("UI Tasks test suite", function () {
     before("Setup: delete all existing tasks", function () {
         taskAction.deleteAllTasks();
     });

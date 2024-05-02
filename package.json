@@ -4,7 +4,7 @@
   "description": "UI and API cypress tests",
   "main": "index.js",
   "scripts": {
-    "cy:run": "cypress run --spec \"cypress/e2e/ui-tests/*.cy.js\""
+    "cy:run": "cypress run --spec \"cypress/e2e/**/*.cy.js\""
   },
   "repository": {
     "type": "git",
